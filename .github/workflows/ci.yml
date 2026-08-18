@@ -40,7 +40,7 @@ jobs:
       - name: Install pytest + ansible-core
         run: |
           python -m pip install --upgrade pip
-          pip install pytest pyyaml ansible-core
+          pip install pytest pyyaml 'ansible-core>=2.20,<2.21'
       - name: Run unit tests
         run: pytest tests/unit/ -v
       - name: Run eval (scripted-LLM orchestrator E2E)
@@ -70,7 +70,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install ansible-core
-        run: pip install ansible-core
+        run: pip install 'ansible-core>=2.20,<2.21'
       - name: Run ansible-test sanity
         working-directory: ansible_collections/yalindogusahin/ansible_ai
         run: ansible-test sanity --docker default --skip-test pep8 --skip-test pylint
@@ -86,7 +86,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install ansible-core
-        run: pip install ansible-core
+        run: pip install 'ansible-core>=2.20,<2.21'
       - name: Start scripted-LLM stub
         working-directory: ansible_collections/yalindogusahin/ansible_ai
         run: |
@@ -118,7 +118,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install ansible-core
-        run: pip install ansible-core
+        run: pip install 'ansible-core>=2.20,<2.21'
       - name: Start scripted-LLM stub
         working-directory: ansible_collections/yalindogusahin/ansible_ai
         run: |
@@ -152,7 +152,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install ansible-core
-        run: pip install ansible-core
+        run: pip install 'ansible-core>=2.20,<2.21'
       - name: Build collection
         run: ansible-galaxy collection build .
       - name: Upload artifact
